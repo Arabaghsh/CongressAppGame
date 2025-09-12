@@ -241,7 +241,7 @@ public class Player extends Entity{
     }
 
     // Handle sprite animation
-    if (spriteCounter > 12) {
+    if (spriteCounter > (gp.getFPS() / 5)) {
         spriteNum = (spriteNum == 1) ? 2 : 1;
         spriteCounter = 0;
     }

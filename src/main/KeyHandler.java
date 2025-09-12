@@ -233,7 +233,7 @@ public class KeyHandler implements KeyListener {
         	gp.ui.commandNum--;
 			if(gp.ui.commandNum<0) {
 				if (gp.ui.subState == 0) {
-				gp.ui.commandNum=4;
+				gp.ui.commandNum=5;
 				}else {
 					gp.ui.commandNum=1;
 				}	
@@ -243,14 +243,14 @@ public class KeyHandler implements KeyListener {
         if ((inVolumeMenu || inControlsMenu) && (code == KeyEvent.VK_S || code == KeyEvent.VK_DOWN)) {
         	gp.playSE(9);
             gp.ui.commandNum++;
-			if((gp.ui.commandNum>4 && inVolumeMenu) || (gp.ui.commandNum>1 && inControlsMenu)) {
+			if((gp.ui.commandNum>5 && inVolumeMenu) || (gp.ui.commandNum>1 && inControlsMenu)) {
 				gp.ui.commandNum=0;
 			}
         }
 
         if (code == KeyEvent.VK_ENTER) {
-        	gp.playSE(10);
-            enterPressed = true;
+        		gp.playSE(10);
+        		enterPressed = true;
         }
 
         if (inVolumeMenu) {

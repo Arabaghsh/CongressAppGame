@@ -42,6 +42,8 @@ public class UI {
 	private final int splashDuration = 180; // 3 seconds at 60 FPS
 
 
+	public boolean isLowFPS = false;
+	
 	float titleAlpha = 0f;
 	
 	public UI(GamePanel gp) {
@@ -633,7 +635,7 @@ public class UI {
 			int dx = (int)(Math.sin(cursorAnimTimer) * CURSOR_ANIM_AMPLITUDE);
 	        g2.drawString(">", textX-25 + dx, textY);
 		}
-		//se
+		//SFX
 		textY +=gp.tileSize;
 		g2.drawString("SFX", textX, textY);
 		if (commandNum == 1) {
@@ -651,10 +653,30 @@ public class UI {
 				commandNum = 0;
 			}
 		}
+		// FPS saver
+		
+		textY +=gp.tileSize;
+		g2.drawString("Performance Mode", textX, textY);
+		int tempBoxX = textX + (int)(gp.tileSize*5.75);
+		int tempBoxY = textY - (int)(gp.tileSize * 0.5);
+		g2.drawRect(tempBoxX, tempBoxY, 25, 25);
+		if (commandNum == 3) {
+			int dx = (int)(Math.sin(cursorAnimTimer) * CURSOR_ANIM_AMPLITUDE);
+			g2.drawString(">", textX-25 + dx, textY);
+			if (gp.key.enterPressed) {
+				isLowFPS = !isLowFPS;
+				gp.lowFPSMode(isLowFPS); // Change the FPS and player speed
+			}
+		}
+		if (isLowFPS) {
+			// Fill Rect
+			g2.fillRect(tempBoxX, tempBoxY, 25, 25);
+		}
+		
 		//quit
 		textY +=gp.tileSize;
 		g2.drawString("End Game", textX, textY);
-		if (commandNum == 3) {
+		if (commandNum == 4) {
 			int dx = (int)(Math.sin(cursorAnimTimer) * CURSOR_ANIM_AMPLITUDE);
 			g2.drawString(">", textX-25 + dx, textY);
 			if (gp.key.enterPressed) {
@@ -666,7 +688,7 @@ public class UI {
 		//back
 		textY +=gp.tileSize*2;
 		g2.drawString("Back", textX, textY);
-		if (commandNum == 4) {
+		if (commandNum == 5) {
 			int dx = (int)(Math.sin(cursorAnimTimer) * CURSOR_ANIM_AMPLITUDE);
 			g2.drawString(">", textX-25 + dx, textY);
 			if (gp.key.enterPressed) {
@@ -795,6 +817,8 @@ public class UI {
 		}
 		g2.drawImage(image, 40, 30, gp.tileSize,gp.tileSize, null);
 		g2.drawString(gp.player.trash + "/" + (gp.obj.length-4), 100, 70);
+		
+		g2.drawString("FPS " + gp.FPS, gp.screenWidth-(4*gp.tileSize),160);
 		
 		  int x ;
 		  int y = 30;

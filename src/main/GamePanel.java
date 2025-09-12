@@ -33,7 +33,7 @@ public class GamePanel extends JPanel implements Runnable {
 	public final int worldHeight = tileSize * maxWorldRow;
 	
 		
-	int FPS = 60; //fps
+	public int FPS = 60; //fps
 	
 	public TileManager tileM = new TileManager(this);
 	
@@ -63,6 +63,7 @@ public class GamePanel extends JPanel implements Runnable {
 	private long lastTimerCheck = System.nanoTime();
 	private boolean timerActive = false;
 	
+	private double drawInterval;
 	
 
 	
@@ -99,7 +100,7 @@ public class GamePanel extends JPanel implements Runnable {
 	
 	public void run() {
 		//Game Loop
-		double drawInterval = 1000000000/FPS; // 0.01666666 seconds
+		drawInterval = 1000000000/FPS; // 0.01666666 seconds
 		double delta = 0;
 		long lastTime = System.nanoTime();
 		long currentTime;
@@ -188,6 +189,22 @@ public class GamePanel extends JPanel implements Runnable {
 	public void playSE(int i) {
 		sound.setFile(i);
 		sound.play();
+	}
+
+	public void lowFPSMode(boolean b) {
+		if (b) {
+			FPS = 18;
+			player.speed = 12;
+		}else {
+			FPS = 60;
+			player.speed = 4;
+		}
+		
+		drawInterval = 1000000000/FPS;
+	}
+
+	public int getFPS() {
+		return FPS;
 	}
 }
 
