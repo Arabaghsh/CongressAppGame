@@ -8,7 +8,7 @@ public class KeyHandler implements KeyListener {
     public boolean upPressed, downPressed, leftPressed, rightPressed, changePressed, enterPressed;
     public GamePanel gp;
     private String currentMap;
-    public boolean isHard;
+    public boolean isHard, isMed;
 
     public KeyHandler(GamePanel gp) {
         this.gp = gp;
@@ -169,22 +169,23 @@ public class KeyHandler implements KeyListener {
         	gp.playSE(9);
         	gp.ui.commandNum--;
 			if(gp.ui.commandNum<0) {
-				gp.ui.commandNum=2;
+				gp.ui.commandNum=3;
 			}
         }
         if (code == KeyEvent.VK_S || code == KeyEvent.VK_D || code == KeyEvent.VK_RIGHT) {
         	gp.playSE(9);
         	gp.ui.commandNum++;
-			if(gp.ui.commandNum>2) {
+			if(gp.ui.commandNum>3) {
 				gp.ui.commandNum=0;
 			}
         }
         if (code == KeyEvent.VK_ENTER) {
         	gp.playSE(10);
             switch (gp.ui.commandNum) {
-                case 0: isHard = false; setupGame(currentMap);break;
-                case 1: isHard = true; setupGame(currentMap); break;
-                case 2: {
+                case 0: isHard = false; isMed = false; setupGame(currentMap);break;
+                case 1: isHard = false; isMed = true; setupGame(currentMap);break;
+                case 2: isHard = true; isMed = false;setupGame(currentMap); break;
+                case 3: {
                     gp.ui.titleScreenState = 1;
                     gp.ui.commandNum = 0;
                     break;

@@ -358,6 +358,8 @@ public class Player extends Entity{
 		}
 		if (gp.key.isHard) {
 			knockbackFrames = 30;
+		}else if (gp.key.isMed) {
+			knockbackFrames = 23;
 		}else {
 			knockbackFrames = 15;
 		}

@@ -81,6 +81,8 @@ public class GamePanel extends JPanel implements Runnable {
 		aSetter.setObject();
 		if (key.isHard) {
 			timeLeft = 40;
+		}else if (key.isMed) {
+			timeLeft = 50;
 		}else {
 			timeLeft = 60;
 		}

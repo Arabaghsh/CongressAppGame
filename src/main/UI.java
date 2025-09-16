@@ -200,20 +200,31 @@ public class UI {
 
       g2.setFont(new Font("Press Start 2P", Font.PLAIN, 25));
       
-      text = "Easy";
-	     x = gp.tileSize*4;
-	     y += (int)(gp.tileSize*5); 
+      	 text = "Easy";
+	     x = gp.tileSize*2;
+	     y += (int)(gp.tileSize*5.5); 
 	     g2.drawString(text, x, y);
 	     if (commandNum == 0) {
 	    	 g2.setColor(Color.yellow);
 	    	 int dx = (int)(Math.sin(cursorAnimTimer) * CURSOR_ANIM_AMPLITUDE);
 	    	 g2.drawString(">", x - gp.tileSize + dx, y);
-	     }	     
+	     }
+	     
 	     g2.setColor(Color.white);
-	     text = "Hard";
-	     x += gp.tileSize*5;
+	     text = "Medium";
+	     x += gp.tileSize*4.5;
 	     g2.drawString(text, x, y);
 	     if (commandNum == 1) {
+	    	 g2.setColor(Color.yellow);
+	    	 int dx = (int)(Math.sin(cursorAnimTimer) * CURSOR_ANIM_AMPLITUDE);
+	    	 g2.drawString(">", x - gp.tileSize + dx, y);
+	     }	     
+	     
+	     g2.setColor(Color.white);
+	     text = "Hard";
+	     x += gp.tileSize*5.5;
+	     g2.drawString(text, x, y);
+	     if (commandNum == 2) {
 	    	 g2.setColor(Color.yellow);
 	    	 int dx = (int)(Math.sin(cursorAnimTimer) * CURSOR_ANIM_AMPLITUDE);
 	    	 g2.drawString(">", x - gp.tileSize + dx, y);
@@ -225,14 +236,14 @@ public class UI {
 	     x = gp.screenWidth-gp.tileSize*4;
 	     y+= gp.tileSize*2;
 	     g2.drawString(text, x, y);
-	     if (commandNum == 2) {
+	     if (commandNum == 3) {
 	    	 g2.setColor(Color.yellow);
 	    	 int dx = (int)(Math.sin(cursorAnimTimer) * CURSOR_ANIM_AMPLITUDE);
 	    	 g2.drawString(">", x - gp.tileSize + dx, y);
 	     }	 
 	     
 	     
-	     x = (int)(gp.tileSize*3.5);
+	     x = (int)(gp.tileSize*1.5);
 	     y -= (int)(gp.tileSize*6);  
 	     g2.drawImage(image,x, y, gp.tileSize * 3, gp.tileSize * 3,null);
 	     
@@ -243,7 +254,7 @@ public class UI {
 	    	 e.printStackTrace();
 	     }
 	     
-	     x += (int)(gp.tileSize*5); 
+	     x += (int)(gp.tileSize*10); 
 	     g2.drawImage(image,x, y, gp.tileSize * 3, gp.tileSize * 3,null);
 	     
 	    
@@ -818,7 +829,7 @@ public class UI {
 		g2.drawImage(image, 40, 30, gp.tileSize,gp.tileSize, null);
 		g2.drawString(gp.player.trash + "/" + (gp.obj.length-4), 100, 70);
 		
-		g2.drawString("FPS " + gp.FPS, gp.screenWidth-(4*gp.tileSize),160);
+		//g2.drawString("FPS " + gp.FPS, gp.screenWidth-(4*gp.tileSize),160);
 		
 		  int x ;
 		  int y = 30;
@@ -829,7 +840,11 @@ public class UI {
 			  x = 616;
 			  timerBarMaxWidth =134;
 			  actualTime = 40f;
-		  }else{
+		  }else if (gp.key.isMed){
+			  x=600;
+			  timerBarMaxWidth =150;
+			  actualTime = 50f;
+		  }else {
 			  x=550;
 			  timerBarMaxWidth =200;
 			  actualTime = 60f;
