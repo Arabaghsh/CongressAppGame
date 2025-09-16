@@ -841,8 +841,8 @@ public class UI {
 			  timerBarMaxWidth =134;
 			  actualTime = 40f;
 		  }else if (gp.key.isMed){
-			  x=600;
-			  timerBarMaxWidth =150;
+			  x=583;
+			  timerBarMaxWidth =167;
 			  actualTime = 50f;
 		  }else {
 			  x=550;
