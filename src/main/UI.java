@@ -192,7 +192,7 @@ public class UI {
       
       
       try {
-	    	 image = ImageIO.read(getClass().getResourceAsStream("/objects/Easy icon.png"));
+	    	 image = ImageIO.read(getClass().getResourceAsStream("/objects/Easy Icon new.png"));
 	    } catch (IOException e) {
 	    	 e.printStackTrace();
 	     }
@@ -249,12 +249,24 @@ public class UI {
 	     
 	     
 	     try {
-	    	 image = ImageIO.read(getClass().getResourceAsStream("/objects/Hard icon.png"));
+	    	 image = ImageIO.read(getClass().getResourceAsStream("/objects/Medium icon.png"));
 	    } catch (IOException e) {
 	    	 e.printStackTrace();
 	     }
 	     
-	     x += (int)(gp.tileSize*10); 
+	     x += (int)(gp.tileSize*5);
+	     y -= (int)(gp.tileSize/3);
+	     g2.drawImage(image,x, y, gp.tileSize * 3, gp.tileSize * 3,null);
+	     
+	     
+	     try {
+	    	 image = ImageIO.read(getClass().getResourceAsStream("/objects/Hard Icon.png"));
+	    } catch (IOException e) {
+	    	 e.printStackTrace();
+	     }
+	     
+	     x += (int)(gp.tileSize*5); 
+	     
 	     g2.drawImage(image,x, y, gp.tileSize * 3, gp.tileSize * 3,null);
 	     
 	    
@@ -962,7 +974,7 @@ public class UI {
 		
 		//try again
 		g2.setFont(new Font("Press Start 2P", Font.PLAIN, 25));
-		text = "Try Again";
+		text = "Play Again";
 		x = getXCordForMid(text);
 		y += gp.tileSize*4;
 		g2.drawString(text, x,y);

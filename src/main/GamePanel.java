@@ -195,7 +195,7 @@ public class GamePanel extends JPanel implements Runnable {
 
 	public void lowFPSMode(boolean b) {
 		if (b) {
-			FPS = 18;
+			FPS = 20;
 			player.speed = 12;
 		}else {
 			FPS = 60;
