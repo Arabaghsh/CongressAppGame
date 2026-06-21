@@ -249,7 +249,7 @@ public class UI {
 	     
 	     
 	     try {
-	    	 image = ImageIO.read(getClass().getResourceAsStream("/objects/Medium icon.png"));
+	    	 image = ImageIO.read(getClass().getResourceAsStream("/objects/Medium Icon.png"));
 	    } catch (IOException e) {
 	    	 e.printStackTrace();
 	     }

@@ -8,7 +8,7 @@ public class KeyHandler implements KeyListener {
     public boolean upPressed, downPressed, leftPressed, rightPressed, changePressed, enterPressed;
     public GamePanel gp;
     private String currentMap;
-    public boolean isHard, isMed;
+    public boolean isHard,isMed;
 
     public KeyHandler(GamePanel gp) {
         this.gp = gp;

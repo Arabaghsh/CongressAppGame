@@ -12,6 +12,7 @@ import tile.TileManager;
 
 public class GamePanel extends JPanel implements Runnable {
 
+	private static final long serialVersionUID = 1L;
 	//SCREEN SETTINGS
 	final int originalTileSize = 16; //16x16 tiles
 	final int scaleValue = 3;
@@ -88,7 +89,6 @@ public class GamePanel extends JPanel implements Runnable {
 		}
 		lastTimerCheck = System.nanoTime();
 		timerActive = true;
-
 	}
 	
 	
